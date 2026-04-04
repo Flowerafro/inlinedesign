@@ -1,4 +1,4 @@
-import { Bebas_Neue, Open_Sans } from "next/font/google";
+import { Bebas_Neue, Open_Sans, Six_Caps } from "next/font/google";
 
 export const bebasNeue = Bebas_Neue({
   weight: "400",
@@ -12,4 +12,11 @@ export const openSans = Open_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
+});
+
+export const sixCaps = Six_Caps({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
 });

@@ -5,8 +5,8 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   font-src 'self' https://fonts.gstatic.com;
-  img-src 'self' data: https://www.google-analytics.com;
-  connect-src 'self' https://www.google-analytics.com https://analytics.google.com;
+  img-src 'self' data: https://cdn.sanity.io https://www.google-analytics.com;
+  connect-src 'self' https://cdn.sanity.io https://*.api.sanity.io https://www.google-analytics.com https://analytics.google.com;
   frame-src 'none';
   object-src 'none';
   base-uri 'self';

@@ -18,6 +18,34 @@ export const siteSettings = defineType({
       type: "string",
     }),
     defineField({
+      name: "logo",
+      title: "Logo",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          initialValue: "inline design logo",
+        }),
+      ],
+    }),
+    defineField({
+      name: "logoWordmark",
+      title: "Logo - wordmark",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          initialValue: "inline design wordmark logo",
+        }),
+      ],
+    }),
+    defineField({
       name: "ogImage",
       title: "Default OG image",
       type: "image",

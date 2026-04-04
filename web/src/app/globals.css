@@ -4,6 +4,7 @@
 @theme {
   /* Fonts */
   --font-heading: "Bebas Neue", sans-serif;
+  --font-display: "Six Caps", sans-serif;
   --font-body: "Open Sans", sans-serif;
 
   /* Brand colours */
@@ -13,6 +14,7 @@
   --color-pink: #fa41cc;
   --color-purple: #1f1347;
   --color-purple-header: #2a1050;
+  --color-card-overlay: rgba(34, 32, 29, 0.70);
 
   /* Spacing / sizing helpers */
   --radius-blob: 60% 40% 55% 45% / 45% 55% 45% 55%;
@@ -51,23 +53,11 @@ body {
   font-family: var(--font-body);
 }
 
-/* ─── Header wave shape ──────────────────────────────────────────────────────── */
-.header-wave {
-  position: relative;
-  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-header) 60%, #3d1060 100%);
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
 }
 
-.header-wave::after {
-  content: "";
-  position: absolute;
-  bottom: -28px;
-  left: 0;
-  width: 100%;
-  height: 30px;
-  background: inherit;
-  clip-path: ellipse(55% 100% at 50% 0%);
-  z-index: 1;
-}
 
 /* ─── Nav active state ───────────────────────────────────────────────────────── */
 .nav-link {
@@ -204,8 +194,13 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* ─── Hamburger button ───────────────────────────────────────────────────────── */
@@ -227,6 +222,94 @@ body {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── Project card ───────────────────────────────────────────────────────────── */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.project-card:hover .project-card__overlay {
+  background-color: rgba(34, 32, 29, 0.50);
+}
+
+.project-card:hover .project-card__img {
+  transform: scale(1.04);
+}
+
+.project-card__img {
+  transition: transform 0.4s ease;
+}
+
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-card-overlay);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1.25rem;
+}
+
+/* ─── Filter buttons ─────────────────────────────────────────────────────────── */
+.filter-btn {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  padding: 0.35rem 1rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.filter-btn:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
+}
+
+.filter-btn.active {
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+}
+
+/* ─── Gallery slider ─────────────────────────────────────────────────────────── */
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-text);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  z-index: 10;
+}
+
+.gallery-arrow:hover {
+  background: rgba(250, 65, 204, 0.3);
+  border-color: var(--color-pink);
+}

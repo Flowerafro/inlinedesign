@@ -15,39 +15,29 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ links, pathname, onClose }: MobileMenuProps) {
   return (
-    <div className="mobile-menu-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div
+      className="mobile-menu-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
       <button
         onClick={onClose}
         aria-label="Close menu"
-        style={{
-          position: "absolute",
-          top: "1.5rem",
-          right: "2rem",
-          background: "none",
-          border: "none",
-          color: "var(--color-text)",
-          fontSize: "2rem",
-          cursor: "pointer",
-          lineHeight: 1,
-        }}
+        className="absolute top-6 right-8 bg-transparent border-none text-white text-[2rem] cursor-pointer leading-none"
       >
         ✕
       </button>
 
-      <nav style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "2.5rem" }}>
+      <nav className="flex flex-col items-center gap-10">
         {links.map(({ href, label }) => (
           <Link
             key={href}
             href={href}
             onClick={onClose}
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "2.5rem",
-              letterSpacing: "0.1em",
-              color: pathname === href ? "var(--color-pink)" : "var(--color-text)",
-              textDecoration: "none",
-              transition: "color 0.2s ease",
-            }}
+            className={`font-heading text-[2.5rem] tracking-[0.1em] no-underline transition-colors duration-200 ${
+              pathname === href ? "text-[var(--color-pink)]" : "text-white"
+            }`}
           >
             {label.toUpperCase()}
           </Link>
@@ -57,16 +47,7 @@ export default function MobileMenu({ links, pathname, onClose }: MobileMenuProps
       <Link
         href="/cv.pdf"
         onClick={onClose}
-        style={{
-          fontFamily: "var(--font-heading)",
-          fontSize: "1.1rem",
-          letterSpacing: "0.1em",
-          color: "var(--color-text)",
-          border: "1.5px solid var(--color-text)",
-          padding: "0.5rem 2rem",
-          textDecoration: "none",
-          marginTop: "1rem",
-        }}
+        className="btn-cv mt-4 text-[1.1rem] tracking-[0.1em] px-8 py-2"
       >
         CV
       </Link>

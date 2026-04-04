@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { bebasNeue, openSans } from "@/lib/fonts";
+import { bebasNeue, openSans, sixCaps } from "@/lib/fonts";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/common/CookieConsent";
@@ -46,19 +46,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${bebasNeue.variable} ${openSans.variable}`}
-    >
-      <body
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100dvh",
-        }}
-      >
+    <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${sixCaps.variable}`}>
+      <body className="flex flex-col min-h-dvh">
         <Header />
-        <main style={{ flex: 1 }}>{children}</main>
+        <main className="flex-1 flex flex-col items-center w-full">{children}</main>
         <Footer />
         <CookieConsent />
       </body>
