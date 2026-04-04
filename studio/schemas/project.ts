@@ -35,6 +35,7 @@ export const project = defineType({
           { title: "UI Design", value: "ui-design" },
           { title: "UX Design", value: "ux-design" },
           { title: "Logo", value: "logo" },
+          { title: "Digital Marketing", value: "digital-marketing" },
           { title: "Graphic Design", value: "graphic-design" },
           { title: "Brand Identity", value: "brand-identity" },
           { title: "Communication design", value: "communication-design" },
@@ -59,6 +60,7 @@ export const project = defineType({
           { title: "UI Design", value: "ui-design" },
           { title: "UX Design", value: "ux-design" },
           { title: "Logo", value: "logo" },
+          { title: "Digital Marketing", value: "digital-marketing" },
           { title: "Graphic Design", value: "graphic-design" },
           { title: "Brand Identity", value: "brand-identity" },
           { title: "Communication design", value: "communication-design" },
@@ -92,19 +94,12 @@ export const project = defineType({
     }),
     defineField({
       name: "techStack",
-      title: "Tech Stack Icons",
-      description: "Legg til teknologi og last opp tilhørende ikon (SVG anbefales)",
+      title: "Tech Stack",
       type: "array",
-      group: 'details',
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "label", title: "Technology Name", type: "string" },
-            { name: "icon", title: "Icon", type: "image", options: { hotspot: true } }
-          ]
-        }
-      ]
+      of: [{ type: "string" }],
+      options: {
+        layout: 'tags',
+      },
     }),
 
     // --- FLEKSIBLE PROSJEKTLENKER ---

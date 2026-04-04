@@ -22,11 +22,10 @@ export default async function Logo() {
                     src={logoSrc}
                     alt="inline design logo"
                     fill
-                    className="object-contain transition-transform group-hover:scale-105"
+                    className="object-contain transition-transform group-hover:scale-105 cursor-pointer"
                     priority
                 />
             </div>
-            <span className="block w-[52px] h-[2px] bg-white rounded-[1px] transition-all group-hover:w-[60px] group-hover:bg-pink-500" />
         </Link>
     );
 }

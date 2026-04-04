@@ -15,11 +15,6 @@ export interface SanitySlug {
   current: string;
 }
 
-export interface TechStackItem {
-  label: string;
-  icon?: SanityImage;
-}
-
 export interface ProjectLink {
   linkType: string;
   url?: string;
@@ -38,7 +33,7 @@ export interface Project {
   assignmentType?: "exam" | "customer" | "hobby";
   publishedAt?: string;
   description?: unknown[]; // Portable Text blocks
-  techStack?: TechStackItem[];
+  techStack?: string[];
   projectLinks?: ProjectLink[];
   gallery?: SanityImage[];
 }
@@ -82,10 +77,7 @@ const PROJECT_DETAIL_FIELDS = `
   assignmentType,
   publishedAt,
   description,
-  techStack[]{
-    label,
-    icon
-  },
+  techStack,
   projectLinks[]{
     linkType,
     url,

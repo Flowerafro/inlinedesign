@@ -49,7 +49,7 @@ export default function RootLayout({
     <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${sixCaps.variable}`}>
       <body className="flex flex-col min-h-dvh">
         <Header />
-        <main className="flex-1 flex flex-col items-center w-full">{children}</main>
+        <main>{children}</main>
         <Footer />
         <CookieConsent />
       </body>

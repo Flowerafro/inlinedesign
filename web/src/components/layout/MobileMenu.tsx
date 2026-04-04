@@ -1,56 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-interface NavLink {
-  href: string;
-  label: string;
-}
+const links = [
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/contact" },
+];
 
-interface MobileMenuProps {
-  links: NavLink[];
-  pathname: string;
-  onClose: () => void;
-}
+export default function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-export default function MobileMenu({ links, pathname, onClose }: MobileMenuProps) {
   return (
-    <div
-      className="mobile-menu-overlay"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Mobile navigation"
-    >
+    <div className="md:hidden">
+      {/* Hamburger Button */}
       <button
-        onClick={onClose}
-        aria-label="Close menu"
-        className="absolute top-6 right-8 bg-transparent border-none text-white text-[2rem] cursor-pointer leading-none"
+        onClick={() => setIsOpen(!isOpen)}
+        className="relative z-50 flex flex-col gap-1.5 p-2"
+        aria-label="Toggle menu"
       >
-        ✕
+        <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+        <span className={`block w-6 h-0.5 bg-white transition-opacity ${isOpen ? "opacity-0" : ""}`} />
+        <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
       </button>
 
-      <nav className="flex flex-col items-center gap-10">
-        {links.map(({ href, label }) => (
-          <Link
-            key={href}
-            href={href}
-            onClick={onClose}
-            className={`font-heading text-[2.5rem] tracking-[0.1em] no-underline transition-colors duration-200 ${
-              pathname === href ? "text-[var(--color-pink)]" : "text-white"
-            }`}
-          >
-            {label.toUpperCase()}
-          </Link>
-        ))}
-      </nav>
-
-      <Link
-        href="/cv.pdf"
-        onClick={onClose}
-        className="btn-cv mt-4 text-[1.1rem] tracking-[0.1em] px-8 py-2"
-      >
-        CV
-      </Link>
+      {/* Overlay Menu */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 bg-[#22201d] flex flex-col items-center justify-center gap-8">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={`font-display text-5xl uppercase tracking-widest ${pathname === link.href ? "text-pink-500" : "text-white"
+                }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

@@ -1,75 +1,27 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
-import MobileMenu from "./MobileMenu";
 import Logo from "../ui/Logos/Logo";
-
-const navLinks = [
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/designs", label: "Designs" },
-  { href: "/contact", label: "Contact" },
-];
+import Wordmark from "../ui/Logos/Wordmark";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <>
-      <header className="w-full z-50">
-        <section className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-          {/* Logo */}
+    <header className="w-full flex justify-center">
+      <div className="w-full max-w-[1200px] flex mx-auto px-6 h-24 flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Logo />
+          <Wordmark />
+        </div>
 
-          {/* Desktop Nav */}
-          <nav
-            aria-label="Main navigation"
-            className="hidden md:flex gap-12 items-center"
-          >
-            {navLinks.map(({ href, label }) => (
-              <Link
-                key={href}
-                href={href}
-                className={`nav-link${pathname === href ? " active" : ""}`}
-              >
-                {label.toUpperCase()}
-              </Link>
-            ))}
-          </nav>
+        <nav className="hidden md:flex items-center gap-8">
+          <Link href="/about" className="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent hover:text-pink-500 hover:border-pink-500 transition-colors">About</Link>
+          <Link href="/projects" className="nav-link text-sm uppercase tracking-widest border-b-2 border-pink-500 text-pink-500">Projects</Link>
+          <Link href="/designs" className="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent hover:text-pink-500 hover:border-pink-500 transition-colors">Designs</Link>
+          <Link href="/contact" className="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent hover:text-pink-500 hover:border-pink-500 transition-colors">Contact</Link>
+          <Link href="/cv.pdf" className="btn-cv text-sm tracking-[0.1em] px-6 py-2 ml-4">CV</Link>
+        </nav>
 
-          {/* Right: CV button + hamburger */}
-          <div className="flex items-center gap-4">
-            <Link href="/cv.pdf" className="btn-cv hidden md:inline-block" aria-label="Download CV">
-              CV
-            </Link>
-
-            {/* Hamburger — mobile only */}
-            <button
-              className={`hamburger md:hidden${menuOpen ? " open" : ""}`}
-              onClick={() => setMenuOpen((o) => !o)}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={menuOpen}
-              id="hamburger-btn"
-            >
-              <span />
-              <span />
-              <span />
-            </button>
-          </div>
-        </section>
-      </header>
-
-      {menuOpen && (
-        <MobileMenu
-          links={navLinks}
-          pathname={pathname}
-          onClose={() => setMenuOpen(false)}
-        />
-      )}
-    </>
+        <MobileMenu />
+      </div>
+    </header>
   );
 }
