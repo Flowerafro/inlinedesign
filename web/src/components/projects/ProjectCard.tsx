@@ -26,14 +26,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-[#22201d] to-black" />
       )}
 
-      {/* Dark overlay + content */}
-      <div className="project-card__overlay">
-        <h3 className="font-heading text-[1.4rem] leading-tight uppercase text-white mb-3">
-          {title}
-        </h3>
-        <span className="inline-flex items-center gap-1 font-heading text-[0.85rem] tracking-[0.1em] uppercase text-white border border-white/60 px-3 py-1 group-hover:border-[var(--color-pink)] group-hover:text-[var(--color-pink)] transition-colors duration-200">
-          VIEW →
-        </span>
+      {/* Dark overlay + content perfectly centered */}
+      <div className="project-card__overlay flex flex-col items-center justify-center p-6 text-center">
+        <div className="w-full h-full flex flex-col items-center justify-center">
+          <h3 className="font-heading text-[1.4rem] md:text-[2rem] uppercase text-white mb-6">
+            {title}
+          </h3>
+          <p className="inline-flex items-center justify-center font-heading text-[1.2rem] p-4 uppercase border border-white px-8 py-3 text-white bg-transparent transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:-translate-y-0.5 rounded-[4px]">
+            view
+          </p>
+        </div>
       </div>
     </Link>
   );

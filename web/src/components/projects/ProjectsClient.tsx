@@ -26,7 +26,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
           No projects found for this filter.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {visible.map((project) => (
             <ProjectCard key={project._id} project={project} />
           ))}
@@ -34,12 +34,12 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
       )}
 
       {hasMore && (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-16">
           <button
             onClick={loadMore}
-            className="btn-cv px-8 py-3 text-[1rem] tracking-[0.1em]"
+            className="border border-white/60 bg-transparent text-white font-heading text-lg tracking-[0.2em] uppercase px-12 py-4 hover:border-white hover:bg-white/5 transition-all duration-300 hover:-translate-y-0.5 rounded-[4px]"
           >
-            LOAD MORE
+            LOAD MORE PROJECTS
           </button>
         </div>
       )}

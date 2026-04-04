@@ -12,15 +12,15 @@ export default async function ProjectsPage() {
   const projects = await getProjects();
 
   return (
-    <section className="w-full flex flex-col items-center px-6 md:px-8 py-16">
-
-      <div className="max-w-[1200px] mx-auto mt-10">
-        <header className="mb-12">
-          <h1 className="font-display text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] uppercase text-white mb-4">
-            Projects
+    <section className="w-full flex flex-col items-center px-6 md:px-8 py-20">
+      <div className="w-full max-w-[1200px] mx-auto">
+        <header className="mb-24 flex flex-col items-center text-center">
+          <h1 className="font-display text-[clamp(3rem,10vw,6rem)] leading-[0.85] text-white uppercase tracking-tighter">
+            My Latest <br className="md:hidden" /> Projects
           </h1>
-          <p className="font-body text-white/60 text-base max-w-[480px] leading-relaxed">
-            A selection of web and design work — filtered by discipline.
+          <p className="font-body text-white/60 text-lg max-w-[460px] leading-relaxed mt-8">
+            A selection of my latest work — ranging from client projects
+            to school assignments and creative hobby explorations.
           </p>
         </header>
 
