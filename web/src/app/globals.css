@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens (Tailwind v4 CSS-first config) ─────────────────────────── */
+@theme {
+  /* Fonts */
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+
+  /* Brand colours */
+  --color-bg-start: #22201d;
+  --color-bg-end: #000000;
+  --color-text: #ffffff;
+  --color-pink: #fa41cc;
+  --color-purple: #1f1347;
+  --color-purple-header: #2a1050;
+
+  /* Spacing / sizing helpers */
+  --radius-blob: 60% 40% 55% 45% / 45% 55% 45% 55%;
+}
+
+/* ─── Global Base ────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg-start) 0%, var(--color-bg-end) 18%);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography helpers ─────────────────────────────────────────────────────── */
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ─── Header wave shape ──────────────────────────────────────────────────────── */
+.header-wave {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-purple-header) 60%, #3d1060 100%);
+}
+
+.header-wave::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 0%);
+  z-index: 1;
+}
+
+/* ─── Nav active state ───────────────────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-link:hover {
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+}
+
+.nav-link.active {
+  border-color: var(--color-text);
+}
+
+/* ─── CV Button ──────────────────────────────────────────────────────────────── */
+.btn-cv {
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  font-size: 1rem;
+  color: var(--color-text);
+  border: 1.5px solid var(--color-text);
+  padding: 0.35rem 1.1rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.btn-cv:hover {
+  background-color: var(--color-text);
+  color: #000;
+}
+
+/* ─── Social icon buttons ────────────────────────────────────────────────────── */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1.5px solid var(--color-text);
+  color: var(--color-text);
+  transition: border-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+}
+
+/* ─── Hero blob image ────────────────────────────────────────────────────────── */
+.hero-blob {
+  border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+  overflow: hidden;
+  width: min(380px, 90vw);
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
+
+/* ─── Cookie banner ──────────────────────────────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(26, 10, 50, 0.96);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(250, 65, 204, 0.25);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  font-family: var(--font-heading);
+  letter-spacing: 0.07em;
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  border: 1.5px solid var(--color-text);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cookie-btn.accept {
+  background: var(--color-pink);
+  border-color: var(--color-pink);
+  color: #fff;
+}
+
+.cookie-btn.accept:hover {
+  background: #e030b8;
+  border-color: #e030b8;
+}
+
+.cookie-btn.decline:hover {
+  background: var(--color-text);
+  color: #000;
+}
+
+/* ─── Mobile menu overlay ────────────────────────────────────────────────────── */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(26, 8, 50, 0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Hamburger button ───────────────────────────────────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
