@@ -22,11 +22,11 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
       />
 
       {visible.length === 0 ? (
-        <p className="font-body text-white/50 text-base py-16 text-center">
+        <p className="font-body text-white/50 text-base py-16 text-center  gap-8 md:gap-10">
           No projects found for this filter.
         </p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {visible.map((project) => (
             <ProjectCard key={project._id} project={project} />
           ))}
@@ -34,7 +34,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
       )}
 
       {hasMore && (
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-16  gap-8 md:gap-10">
           <button
             onClick={loadMore}
             className="border border-white/60 bg-transparent text-white font-heading text-lg tracking-[0.2em] uppercase px-12 py-4 hover:border-white hover:bg-white/5 transition-all duration-300 hover:-translate-y-0.5 rounded-[4px]"

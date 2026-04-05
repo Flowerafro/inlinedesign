@@ -18,8 +18,8 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   if (total === 0) return null;
 
   return (
-    <section aria-label="Project gallery" className="mt-16">
-      <h2 className="font-heading text-[1.1rem] tracking-[0.1em] uppercase text-white/50 mb-6">
+    <section aria-label="Project gallery" className="my-16">
+      <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">
         Gallery
       </h2>
 
@@ -40,11 +40,11 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
               className="relative w-full shrink-0 aspect-video"
             >
               <Image
-                src={imageUrl(img).width(1400).height(787).fit("crop").url()}
+                src={imageUrl(img).url()}
                 alt={`Gallery image ${i + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 80vw"
-                className="object-cover"
+                className="object-contain p-2 md:p-6"
                 priority={i === 0}
               />
             </div>

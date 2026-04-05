@@ -18,7 +18,6 @@ export default function MobileMenu() {
 
   return (
     <div className="md:hidden">
-      {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="relative z-50 flex flex-col gap-1.5 p-2"

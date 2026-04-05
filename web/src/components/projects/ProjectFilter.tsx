@@ -26,15 +26,14 @@ function labelFor(key: string): string {
 
 export default function ProjectFilter({ filterKeys, activeFilter, onFilter }: ProjectFilterProps) {
   const [isOpen, setIsOpen] = useState(false);
-
   const glassBase = "backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]";
 
   return (
-    <div className="flex flex-col items-center mb-12 px-4">
+    <div className="flex flex-col items-center py-24 px-4 w-full">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          "px-8 py-3 font-heading text-lg tracking-[0.2em] uppercase rounded-sm transition-all duration-300 hover:-translate-y-0.5",
+          "glass-button transition-all duration-300 hover:-translate-y-0.5",
           glassBase,
           isOpen ? "bg-white/15 border-white/30" : "bg-white/5 hover:bg-white/10 border-white/20"
         )}

@@ -34,10 +34,10 @@ export default async function ProjectDetailPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <article className="w-full flex flex-col items-center">
+    <article className="w-full flex flex-col justify-center items-center mx-auto">
       <ProjectHero image={project.mainImage} title={project.title} />
 
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-12">
+      <div className=" flex flex-col mx-auto px-6 md:px-8 py-12 gap-8">
         <ProjectBreadcrumbs />
         <ProjectDescription project={project} />
         <ProjectTech techStack={project.techStack ?? []} />

@@ -13,7 +13,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Link href={href} className="project-card group" aria-label={`View project: ${title}`}>
-      {/* Background image */}
       {cardImage ? (
         <Image
           src={imageUrl(cardImage).width(800).height(800).fit("crop").url()}
@@ -26,8 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-[#22201d] to-black" />
       )}
 
-      {/* Dark overlay + content perfectly centered */}
-      <div className="project-card__overlay flex flex-col items-center justify-center p-6 text-center">
+      <section className="project-card__overlay flex flex-col items-center justify-center p-6 text-center">
         <div className="w-full h-full flex flex-col items-center justify-center">
           <h3 className="font-heading text-[1.4rem] md:text-[2rem] uppercase text-white mb-6">
             {title}
@@ -36,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             view
           </p>
         </div>
-      </div>
+      </section>
     </Link>
   );
 }

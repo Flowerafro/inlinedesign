@@ -26,9 +26,8 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
   const { title, types, assignmentType, description } = project;
 
   return (
-    <div className="max-w-[720px]">
-      {/* H1 — Six Caps */}
-      <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] uppercase text-white mb-6">
+    <div className="max-w-[720px] px-4 flex flex-col gap-2">
+      <h1 className="font-display text-[clamp(3rem,8vw,6rem)] leading-[0.95] uppercase text-white mb-60 pb-20">
         {title}
       </h1>
 
@@ -36,26 +35,32 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
       {types && types.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-4">
           {types.map((t) => (
-            <span
-              key={t}
-              className="font-heading text-[0.75rem] tracking-[0.08em] uppercase px-2 py-[0.2rem] border border-white/30 text-white/70"
-            >
-              {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
-            </span>
+            <div className="flex flex-col gap-2">
+              <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Project type:</h2>
+              <span
+                key={t}
+                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase px-2 py-[0.2rem] border border-white/30 text-white/70 rounded-sm"
+              >
+                {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
+              </span>
+            </div>
           ))}
         </div>
       )}
 
       {/* Assignment type */}
       {assignmentType && (
-        <p className="font-body text-[0.8rem] text-white/50 mb-8 uppercase tracking-wider">
-          {ASSIGNMENT_LABELS[assignmentType] ?? assignmentType}
-        </p>
+        <>
+          <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-4">Assignment type:</h2>
+          <p className="font-body text-[0.8rem] text-white/50 mb-8 uppercase tracking-wider">
+            {ASSIGNMENT_LABELS[assignmentType] ?? assignmentType}
+          </p>
+        </>
       )}
 
       {/* Portable Text description */}
       {description && (
-        <div className="font-body text-base leading-[1.75] text-white/80 space-y-4 prose-invert">
+        <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert p-20">
           <PortableText value={description as Parameters<typeof PortableText>[0]["value"]} />
         </div>
       )}
