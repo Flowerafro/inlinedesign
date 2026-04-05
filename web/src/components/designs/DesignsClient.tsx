@@ -1,7 +1,12 @@
 "use client"
 
+import type { DesignProduct } from "@/lib/queries";
 
-export default function DesignsClient() {
+interface DesignClientProps {
+    designs: DesignProduct[];
+}
+
+export default function DesignsClient({ designs }: DesignClientProps) {
 
     return (
         <>
