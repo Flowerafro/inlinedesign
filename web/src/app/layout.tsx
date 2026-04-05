@@ -8,12 +8,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Line Henriksen – inline design",
   description:
-    "Portfolio of Line Henriksen – graphic designer, visual identity creator, and creative director based in Norway.",
+    "Portfolio of Line Henriksen – IT consultant, graphic designer, visual identity creator, and creative director based in Norway.",
   metadataBase: new URL("https://inlinedesign.no"),
   openGraph: {
     title: "Line Henriksen – inline design",
     description:
-      "Portfolio of Line Henriksen – graphic designer, visual identity creator, and creative director based in Norway.",
+      "Portfolio of Line Henriksen – IT consultant, graphic designer, visual identity creator, and creative director based in Norway.",
     url: "https://inlinedesign.no",
     siteName: "inline design",
     images: [

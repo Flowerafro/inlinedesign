@@ -49,7 +49,7 @@ export default function CookieConsent() {
 
       {/* Banner — only shown while pending */}
       {status === "pending" && (
-        <div className="cookie-banner" role="region" aria-label="Cookie consent">
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[rgba(26,10,50,0.96)] backdrop-blur-[8px] border-t border-[rgba(250,65,204,0.25)] p-4 px-6 flex items-center justify-between gap-4 flex-wrap font-body text-[0.85rem]" role="region" aria-label="Cookie consent">
           <p>
             This site uses cookies to analyse traffic via Google Analytics.{" "}
             <a
@@ -60,11 +60,11 @@ export default function CookieConsent() {
             </a>
             .
           </p>
-          <div className="cookie-banner__actions">
-            <button className="cookie-btn decline" onClick={decline}>
+          <div className="flex gap-3 shrink-0">
+            <button className="font-heading tracking-[0.07em] text-[0.9rem] px-4 py-1.5 border-[1.5px] border-white bg-transparent text-white cursor-pointer transition-colors duration-200 hover:bg-white hover:text-black" onClick={decline}>
               DECLINE
             </button>
-            <button className="cookie-btn accept" onClick={accept}>
+            <button className="font-heading tracking-[0.07em] text-[0.9rem] px-4 py-1.5 border-[1.5px] border-[var(--color-pink)] bg-[var(--color-pink)] text-white cursor-pointer transition-colors duration-200 hover:bg-[#e030b8] hover:border-[#e030b8]" onClick={accept}>
               ACCEPT
             </button>
           </div>

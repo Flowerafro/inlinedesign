@@ -56,14 +56,14 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
           <>
             <button
               onClick={prev}
-              className="gallery-arrow left-3"
+              className="absolute top-1/2 -translate-y-1/2 bg-black/45 border-[1.5px] border-white/25 text-white w-[44px] h-[44px] flex items-center justify-center cursor-pointer transition-colors duration-200 z-10 hover:bg-[rgba(250,65,204,0.3)] hover:border-[var(--color-pink)] left-3"
               aria-label="Previous image"
             >
               <FaAngleLeft size={22} strokeWidth={1.5} />
             </button>
             <button
               onClick={next}
-              className="gallery-arrow right-3"
+              className="absolute top-1/2 -translate-y-1/2 bg-black/45 border-[1.5px] border-white/25 text-white w-[44px] h-[44px] flex items-center justify-center cursor-pointer transition-colors duration-200 z-10 hover:bg-[rgba(250,65,204,0.3)] hover:border-[var(--color-pink)] right-3"
               aria-label="Next image"
             >
               <FaAngleRight size={22} strokeWidth={1.5} />

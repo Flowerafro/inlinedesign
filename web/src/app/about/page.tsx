@@ -9,18 +9,18 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="w-full flex flex-col items-center">
-      <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 py-24">
-        <header className="flex flex-col items-center text-center mb-20">
-          <h1 className="font-display text-[clamp(4rem,10vw,7rem)] leading-[0.85] text-white uppercase tracking-tighter mb-4">
+    <section className="w-full flex flex-col items-center px-6 md:px-8 py-20 wrapper-margin-top">
+      <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-8">
+        <header className="mb-24 flex flex-col items-center text-center gap-8 mb-8">
+          <h1 className="font-display text-[clamp(3rem,10vw,6rem)] leading-[0.85] text-white uppercase tracking-tighter mb-8">
             ABOUT
           </h1>
-          <p className="font-body text-white/60 text-sm md:text-base max-w-[500px] leading-relaxed">
+          <p className="font-body text-white/60 text-sm md:text-base max-w-[460px] leading-relaxed p-8 mt-8 gap-4">
             Get to know the designer behind the pixels. A brief look into my background, my creative process, and what drives my work.
           </p>
         </header>
 
-        <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24">
           <div className="w-full md:w-[45%] relative aspect-[4/5] md:aspect-auto md:h-[600px]">
             <Image
               src={cloudyThoughts}

@@ -9,17 +9,8 @@ interface beaconIconProps {
 export const BeaconsIcon = ({ className = "", size = 22 }: beaconIconProps) => {
     return (
         <div
-            className={`relative inline-flex items-center justify-center ${className}`}
-            style={{ width: size, height: size }}
-        >
-            <Image
-                src={beaconsLogo}
-                alt="Beacons.ai"
-                fill
-                className="object-contain brightness-0 invert vanilla-png-icon"
-                sizes={`${size}px`}
-                priority
-            />
-        </div>
+            className={`hover-icon-effect ${className}`}
+            style={{ width: size, height: size, "--icon-url": `url(${beaconsLogo.src})` } as React.CSSProperties}
+        />
     );
 };
