@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/queries";
 import ProjectHero from "@/components/projects/ProjectHero";
-import ProjectBreadcrumbs from "@/components/projects/ProjectBreadcrumbs";
+import Breadcrumbs from "@/components/common/Breadcrumbs";
 import ProjectDescription from "@/components/projects/ProjectDescription";
 import ProjectTech from "@/components/projects/ProjectTech";
 import ProjectLinks from "@/components/projects/ProjectLinks";
@@ -37,12 +37,14 @@ export default async function ProjectDetailPage({ params }: Props) {
     <article className="w-full flex flex-col justify-center items-center mx-auto">
       <ProjectHero image={project.mainImage} title={project.title} />
 
-      <div className=" flex flex-col mx-auto px-6 md:px-8 py-12 gap-8">
-        <ProjectBreadcrumbs />
-        <ProjectDescription project={project} />
-        <ProjectTech techStack={project.techStack ?? []} />
-        <ProjectLinks links={project.projectLinks ?? []} />
-        <ProjectGallery images={project.gallery ?? []} />
+      <div className="wrapper-padding">
+        <section className="flex flex-col mx-auto px-10 py-12 gap-8">
+          <Breadcrumbs />
+          <ProjectDescription project={project} />
+          <ProjectTech techStack={project.techStack ?? []} />
+          <ProjectLinks links={project.projectLinks ?? []} />
+          <ProjectGallery images={project.gallery ?? []} />
+        </section>
       </div>
     </article>
   );

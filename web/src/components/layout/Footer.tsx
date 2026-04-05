@@ -2,12 +2,13 @@ import SocialIcons from "../ui/Icons/SocialIcons";
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto">
-      <div className="w-full max-w-[1200px] mx-auto px-6 py-6 flex items-center justify-between flex-wrap gap-4">
-        <p className="font-body text-[0.85rem] text-white/60">
-          © 2026 inlinedesign.no. All rights reserved.
-        </p>
-        <SocialIcons />
+    <footer className="w-full mt-auto h-[100px] wrapper-padding">
+      <div className="flex flex-col justify-center items-center gap-4">
+        <div className="flex flex-col">
+          <SocialIcons />
+        </div>
+        <p className="font-body text-[0.50rem] text-white/60">
+          © 2026 inlinedesign.no. All rights reserved.</p>
       </div>
     </footer>
   );

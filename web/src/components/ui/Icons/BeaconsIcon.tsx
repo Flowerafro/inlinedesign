@@ -6,7 +6,7 @@ interface beaconIconProps {
     size?: number;
 }
 
-export const BeaconsIcon = ({ className, size = 22 }: beaconIconProps) => {
+export const BeaconsIcon = ({ className = "", size = 22 }: beaconIconProps) => {
     return (
         <div
             className={`relative inline-flex items-center justify-center ${className}`}
@@ -15,8 +15,8 @@ export const BeaconsIcon = ({ className, size = 22 }: beaconIconProps) => {
             <Image
                 src={beaconsLogo}
                 alt="Beacons.ai"
-                fill // Fyller forelderen (div-en over)
-                className="object-contain brightness-0 invert" // MAGIC! Gjør en sort PNG helt hvit
+                fill
+                className="object-contain brightness-0 invert vanilla-png-icon"
                 sizes={`${size}px`}
                 priority
             />

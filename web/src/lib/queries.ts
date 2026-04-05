@@ -48,6 +48,11 @@ export interface DesignProduct {
   filterCategories?: string[];
   assignmentType?: string;
   listingDescription?: string;
+  description?: any[];
+  gallery?: SanityImage[];
+  types?: string[];
+  instagramUrl?: string;
+  portfolioUrl?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -94,8 +99,24 @@ const DESIGN_PRODUCT_FIELDS = `
   image,
   heroImage,
   filterCategories,
-  assignmentType,
   listingDescription
+`;
+
+const DESIGN_PRODUCT_DETAIL_FIELDS = `
+  _id,
+  _type,
+  title,
+  slug,
+  image,
+  heroImage,
+  filterCategories,
+  assignmentType,
+  listingDescription,
+  description,
+  gallery,
+  types,
+  instagramUrl,
+  portfolioUrl
 `;
 
 export const PROJECTS_QUERY = `
@@ -120,6 +141,16 @@ export const DESIGN_PRODUCTS_QUERY = `
   }
 `;
 
+export const DESIGN_PRODUCT_BY_SLUG_QUERY = `
+  *[_type == "designProduct" && slug.current == $slug][0] {
+    ${DESIGN_PRODUCT_DETAIL_FIELDS}
+  }
+`;
+
+export const DESIGN_PRODUCTS_SLUGS_QUERY = `
+  *[_type == "designProduct" && defined(slug.current)]{ "slug": slug.current }
+`;
+
 // ---------------------------------------------------------------------------
 // Fetch helpers
 // ---------------------------------------------------------------------------
@@ -142,6 +173,16 @@ export async function getProjectSlugs(): Promise<{ slug: string }[]> {
 /** Fetch all design products, ordered newest first. */
 export async function getDesignProducts(): Promise<DesignProduct[]> {
   return sanityClient.fetch<DesignProduct[]>(DESIGN_PRODUCTS_QUERY);
+}
+
+/** Fetch a single design product by slug with full detail fields. */
+export async function getDesignProductBySlug(slug: string): Promise<DesignProduct | null> {
+  return sanityClient.fetch<DesignProduct | null>(DESIGN_PRODUCT_BY_SLUG_QUERY, { slug });
+}
+
+/** Fetch all design product slugs for generateStaticParams. */
+export async function getDesignProductSlugs(): Promise<{ slug: string }[]> {
+  return sanityClient.fetch<{ slug: string }[]>(DESIGN_PRODUCTS_SLUGS_QUERY);
 }
 
 /** Fetch both collections in parallel – useful for the homepage. */

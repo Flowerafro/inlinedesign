@@ -18,15 +18,18 @@ export default function MobileMenu() {
 
   return (
     <div className="md:hidden">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="relative z-50 flex flex-col gap-1.5 p-2"
-        aria-label="Toggle menu"
-      >
-        <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
-        <span className={`block w-6 h-0.5 bg-white transition-opacity ${isOpen ? "opacity-0" : ""}`} />
-        <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-      </button>
+      <div className="wrapper-padding">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-50 flex flex-col gap-1.5 p-2"
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-opacity ${isOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-white transition-transform ${isOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
+      </div>
+
 
       {/* Overlay Menu */}
       {isOpen && (

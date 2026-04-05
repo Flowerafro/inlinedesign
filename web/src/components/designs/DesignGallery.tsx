@@ -6,11 +6,11 @@ import { imageUrl } from "../../lib/imageUrl";
 import { useProjectGallerySlider } from "@/hooks/useProjectGallerySlider";
 import type { SanityImage } from "@/lib/queries";
 
-interface ProjectGalleryProps {
+interface DesignGalleryProps {
   images: SanityImage[];
 }
 
-export default function ProjectGallery({ images }: ProjectGalleryProps) {
+export default function DesignGallery({ images }: DesignGalleryProps) {
   const total = images.length;
   const { currentIndex, next, prev, goTo, onTouchStart, onTouchEnd } =
     useProjectGallerySlider(total);
@@ -18,14 +18,14 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   if (total === 0) return null;
 
   return (
-    <section aria-label="Project gallery" className="my-16 wrapper-padding">
+    <section aria-label="Design gallery" className="my-16">
       <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">
         Gallery
       </h2>
 
       {/* Slider track */}
       <div
-        className="relative overflow-hidden w-full wrapper-padding"
+        className="relative overflow-hidden w-full"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -44,7 +44,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
                 alt={`Gallery image ${i + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 80vw"
-                className="object-contain p-2 md:p-6"
+                className="object-contain p-6 bg-white/5 rounded-md"
                 priority={i === 0}
               />
             </div>

@@ -1,29 +1,32 @@
 import { PortableText } from "@portabletext/react";
-import type { Project } from "@/lib/queries";
+import type { DesignProduct } from "@/lib/queries";
 
 const ASSIGNMENT_LABELS: Record<string, string> = {
   exam: "Exam / School",
-  customer: "Customer Project",
+  "customer-order": "Customer Order",
   hobby: "Personal / Hobby",
+  commercial: "Commercial / For Sale",
+  community: "Public / Community Resource",
 };
 
 const TYPE_LABELS: Record<string, string> = {
-  "web-site": "Web Site",
-  "web-application": "Web App",
-  "ui-design": "UI Design",
-  "ux-design": "UX Design",
   "logo": "Logo",
   "graphic-design": "Graphic Design",
   "brand-identity": "Brand Identity",
-  "communication-design": "Communication Design",
+  "digital-download": "Digital Download",
+  "printable": "Printable",
+  "illustration": "Illustration",
+  "digital-art": "Digital Art",
+  "drawing": "Drawing",
+  "other": "Other",
 };
 
-interface ProjectDescriptionProps {
-  project: Project;
+interface DesignDescriptionProps {
+  design: DesignProduct;
 }
 
-export default function ProjectDescription({ project }: ProjectDescriptionProps) {
-  const { title, types, assignmentType, description } = project;
+export default function DesignDescription({ design }: DesignDescriptionProps) {
+  const { title, types, assignmentType, description } = design;
 
   return (
     <section className="w-full max-w-[320px] md:max-w-[720px] px-4 flex flex-col gap-2">
@@ -34,11 +37,11 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
       {/* Type chips */}
       {types && types.length > 0 && (
         <div className="flex flex-col items-start gap-2 mb-4">
-          <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Project type:</h2>
+          <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Design type:</h2>
           {types.map((t) => (
             <div key={t} className="flex flex-col gap-2">
               <span
-                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase px-2 py-[0.2rem] border border-white/30 text-white/70 rounded-sm"
+                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase px-[0.5rem] py-[0.5rem] border border-white/30 text-white/70 rounded-sm"
               >
                 {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
               </span>

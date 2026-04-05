@@ -6,11 +6,14 @@ import MobileMenu from "./MobileMenu";
 export default function Header() {
   return (
     <header className="w-full flex justify-center">
-      <div className="w-full max-w-[1200px] flex mx-auto px-6 h-24 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Logo />
-          <Wordmark />
+      <section className="w-full max-w-[1200px] flex mx-auto px-10 h-24 flex items-center justify-between">
+        <div className="wrapper-padding">
+          <div className="flex items-center gap-4">
+            <Logo />
+            <Wordmark />
+          </div>
         </div>
+
 
         <nav className="hidden md:flex items-center gap-8">
           <Link href="/about" className="nav-link text-sm uppercase tracking-widest border-b-2 border-transparent hover:text-pink-500 hover:border-pink-500 transition-colors">About</Link>
@@ -21,7 +24,7 @@ export default function Header() {
         </nav>
 
         <MobileMenu />
-      </div>
+      </section>
     </header>
   );
 }

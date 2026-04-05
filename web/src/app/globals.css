@@ -43,6 +43,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.wrapper-padding {
+  padding: 20px;
+}
+
+.wrapper-margin-top {
+  margin-top: 200px;
+}
+
 /* ─── Typography helpers ─────────────────────────────────────────────────────── */
 .font-heading {
   font-family: var(--font-heading);
@@ -78,6 +86,11 @@ body {
 
 .nav-link.active {
   border-color: var(--color-text);
+}
+
+.nav-link:focus {
+  border-color: var(--color-pink);
+  color: var(--color-pink);
 }
 
 /* ─── CV Button ──────────────────────────────────────────────────────────────── */
@@ -116,14 +129,6 @@ body {
   color: var(--color-pink);
 }
 
-/* ─── Hero blob image ────────────────────────────────────────────────────────── */
-.hero-blob {
-  border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
-  overflow: hidden;
-  width: min(380px, 90vw);
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0;
-}
 
 /* ─── Cookie banner ──────────────────────────────────────────────────────────── */
 .cookie-banner {
@@ -335,4 +340,55 @@ body {
 .glass-button:hover {
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/**** hover effect icons ******/
+
+.hover-icon-effect {
+  /* Hvit farge som standard */
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  /* Henter formen fra variabelen vi sender inn via React */
+  mask-image: var(--icon-url);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+
+  /* Safari-støtte */
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* Hover-effekten */
+.hover-icon-effect:hover {
+  background-color: var(--color-pink);
+  transform: scale(1.1);
+}
+
+/* ─── Ultra-Reliable Vanilla CSS Hover ─── */
+.vanilla-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.vanilla-social-link:hover {
+  color: var(--color-pink);
+  transform: scale(1.1);
+}
+
+.vanilla-png-icon {
+  transition: filter 0.3s ease !important;
+}
+
+.vanilla-social-link:hover .vanilla-png-icon {
+  /* Converts the white PNG to exactly #fa41cc via vanilla CSS filter. */
+  filter: brightness(0) saturate(100%) invert(39%) sepia(86%) saturate(1912%) hue-rotate(301deg) brightness(101%) contrast(100%) !important;
 }

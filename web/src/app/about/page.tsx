@@ -10,10 +10,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <section className="w-full flex flex-col items-center">
-      {/* Main Content Container */}
       <div className="w-full max-w-[1200px] mx-auto px-6 md:px-12 py-24">
-
-        {/* Page Header (Centered) */}
         <header className="flex flex-col items-center text-center mb-20">
           <h1 className="font-display text-[clamp(4rem,10vw,7rem)] leading-[0.85] text-white uppercase tracking-tighter mb-4">
             ABOUT
@@ -23,10 +20,7 @@ export default function AboutPage() {
           </p>
         </header>
 
-        {/* Content Layout (Flexbox) */}
         <div className="flex flex-col md:flex-row gap-16 md:gap-24 items-start">
-
-          {/* Left Column (Image) */}
           <div className="w-full md:w-[45%] relative aspect-[4/5] md:aspect-auto md:h-[600px]">
             <Image
               src={cloudyThoughts}
@@ -38,7 +32,6 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Right Column (Text Block) */}
           <div className="w-full md:w-[55%] flex flex-col justify-center mt-4 md:mt-12">
             <h2 className="font-heading text-[2.5rem] md:text-[3rem] text-white uppercase text-left mb-8 tracking-wide">
               THE STORY SO FAR
