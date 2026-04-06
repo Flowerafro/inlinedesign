@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 import { imageUrl } from "../../lib/imageUrl";
 import type { DesignProduct } from "../../lib/queries";
 
@@ -10,39 +11,48 @@ interface DesignCardProps {
 export default function DesignCard({ design }: DesignCardProps) {
   const { title, slug, image, assignmentType } = design;
   const href = `/designs/${slug.current}`;
-  
-  const typeLabel = assignmentType ? assignmentType.charAt(0).toUpperCase() + assignmentType.slice(1) : "";
+  const typeLabel = assignmentType ? assignmentType.replace(/-/g, " ") : "Design";
 
   return (
-    <Link href={href} className="relative overflow-hidden block aspect-square cursor-pointer group" aria-label={`View design: ${title}`}>
-      {image ? (
-        <Image
-          src={imageUrl(image).width(800).height(800).fit("crop").url()}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-400 ease-out group-hover:scale-[1.04]"
-        />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#22201d] to-black" />
-      )}
+    <Link
+      href={href}
+      className="flex flex-col group cursor-pointer transition-all duration-300 hover:-translate-y-1"
+      aria-label={`View design: ${title}`}
+    >
+      <div className="relative overflow-hidden aspect-square rounded-sm w-full mb-4">
+        <div className="absolute inset-0 bg-black/20 z-10 transition-all duration-500 group-hover:bg-black/50" />
 
-      {/* The Overlay */}
-      <section className="absolute inset-0 bg-[var(--color-card-overlay)] opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-start justify-end p-5">
-        <div className="w-full h-full flex flex-col items-center justify-center text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          {typeLabel && (
-            <span className="font-heading text-[1rem] tracking-[0.15em] uppercase text-pink mb-2 block">
-              {typeLabel}
-            </span>
-          )}
-          <h3 className="font-heading text-[1.4rem] md:text-[2rem] uppercase text-white mb-6">
+        <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+          <span className="button-padding border border-white/20 bg-white/10 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.2em] rounded-full">
+            View Project
+          </span>
+        </div>
+
+        {image ? (
+          <Image
+            src={imageUrl(image).width(800).height(800).fit("crop").url()}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover z-0 transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#22201d] to-black" />
+        )}
+      </div>
+
+      {/* Tekst under bildet */}
+      <div className="flex flex-col w-full px-1">
+        <div className="flex justify-between items-center w-full">
+          <h3 className="font-heading text-lg md:text-xl uppercase text-white transition-colors duration-300 group-hover:text-[#ff4d94]">
             {title}
           </h3>
-          <p className="inline-flex items-center justify-center font-heading text-[1.2rem] uppercase border border-white px-8 py-3 text-white bg-transparent transition-all duration-300 hover:bg-pink hover:border-pink hover:text-white rounded-[4px]">
-            view
-          </p>
+          <FiArrowUpRight className="text-white text-xl transition-colors duration-300 group-hover:text-[#ff4d94]" />
         </div>
-      </section>
+        <span className="text-sm text-white/40 uppercase tracking-widest mt-1">
+          {typeLabel}
+        </span>
+      </div>
     </Link>
   );
 }

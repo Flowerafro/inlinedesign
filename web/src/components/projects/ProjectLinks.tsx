@@ -27,7 +27,7 @@ export default function ProjectLinks({ links }: ProjectLinksProps) {
               target="_blank"
               rel="noopener noreferrer"
               download={isFile ? true : undefined}
-              className="flex items-center gap-2 p-4 bg-pink-500 text-white font-heading text-[0.9rem] tracking-[0.1em] uppercase rounded-sm transition-all duration-300 hover:bg-pink-600 hover:-translate-y-0.5"
+              className="flex items-center gap-2 button-padding bg-pink-500 text-white font-heading text-[0.9rem] tracking-[0.1em] uppercase rounded-sm transition-all duration-300 hover:bg-pink-600 hover:-translate-y-0.5"
             >
               {isFile ? <FaFileDownload size={15} /> : <FaExternalLinkAlt size={15} />}{link.linkType}
             </a>

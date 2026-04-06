@@ -41,6 +41,11 @@ export const project = defineType({
           { title: "Communication design", value: "communication-design" },
           { title: "Prompt Engineering", value: "prompt-engineering" },
           { title: "Generative AI", value: "generative-ai" },
+          { title: "Strategic Analysis", value: "strategic-analysis" },
+          { title: "Process optimization", value: "process-optimization" },
+          { title: "IT Strategy", value: "it-strategy" },
+          { title: "Project Management", value: "project-management" },
+          { title: "Business Systems", value: "business-systems" }
         ],
         layout: "grid",
       },
@@ -66,6 +71,11 @@ export const project = defineType({
           { title: "Communication design", value: "communication-design" },
           { title: "Prompt Engineering", value: "prompt-engineering" },
           { title: "Generative AI", value: "generative-ai" },
+          { title: "Strategic Analysis", value: "strategic-analysis" },
+          { title: "Process optimization", value: "process-optimization" },
+          { title: "IT Strategy", value: "it-strategy" },
+          { title: "Project Management", value: "project-management" },
+          { title: "Business Systems", value: "business-systems" }
         ],
         layout: "grid",
       },

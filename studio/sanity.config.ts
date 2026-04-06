@@ -32,6 +32,15 @@ export default defineConfig({
                   .schemaType("siteSettings")
                   .documentId("siteSettings")
               ),
+            // Singleton: About Page
+            S.listItem()
+              .title("About Page")
+              .id("aboutPage")
+              .child(
+                S.document()
+                  .schemaType("aboutPage")
+                  .documentId("aboutPage")
+              ),
             S.divider(),
             S.documentTypeListItem("project").title("Projects"),
             S.documentTypeListItem("designProduct").title("Design Products"),

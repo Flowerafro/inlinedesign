@@ -31,14 +31,13 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
         {title}
       </h1>
 
-      {/* Type chips */}
       {types && types.length > 0 && (
         <div className="flex flex-col items-start gap-2 mb-4">
           <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Project type:</h2>
           {types.map((t) => (
             <div key={t} className="flex flex-col gap-2">
               <span
-                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase px-2 py-[0.2rem] border border-white/30 text-white/70 rounded-sm"
+                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase button-padding border border-white/30 text-white/70 rounded-sm"
               >
                 {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
               </span>

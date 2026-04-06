@@ -34,14 +34,13 @@ export default function DesignDescription({ design }: DesignDescriptionProps) {
         {title}
       </h1>
 
-      {/* Type chips */}
       {types && types.length > 0 && (
         <div className="flex flex-col items-start gap-2 mb-4">
           <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Design type:</h2>
           {types.map((t) => (
             <div key={t} className="flex flex-col gap-2">
               <span
-                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase px-[0.5rem] py-[0.5rem] border border-white/30 text-white/70 rounded-sm"
+                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase button-padding border border-white/30 text-white/70 rounded-sm"
               >
                 {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
               </span>
@@ -50,7 +49,6 @@ export default function DesignDescription({ design }: DesignDescriptionProps) {
         </div>
       )}
 
-      {/* Assignment type */}
       {assignmentType && (
         <>
           <div className="flex flex-col gap-2">
@@ -62,9 +60,8 @@ export default function DesignDescription({ design }: DesignDescriptionProps) {
         </>
       )}
 
-      {/* Portable Text description */}
       {description && (
-        <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-padding">
+        <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-padding whitespace-pre-line">
           <PortableText value={description as Parameters<typeof PortableText>[0]["value"]} />
         </div>
       )}

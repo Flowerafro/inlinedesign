@@ -67,6 +67,7 @@ const PROJECT_LISTING_FIELDS = `
   cardImage,
   filterCategories,
   assignmentType,
+  types,
   publishedAt
 `;
 
@@ -98,6 +99,8 @@ const DESIGN_PRODUCT_FIELDS = `
   slug,
   image,
   heroImage,
+  assignmentType,
+  types,
   filterCategories,
   listingDescription
 `;
@@ -136,7 +139,7 @@ export const PROJECTS_SLUGS_QUERY = `
 `;
 
 export const DESIGN_PRODUCTS_QUERY = `
-  *[_type == "designProduct"] | order(_createdAt desc) {
+  *[_type == "designProduct"] | order(publishedAt desc) {
     ${DESIGN_PRODUCT_FIELDS}
   }
 `;
