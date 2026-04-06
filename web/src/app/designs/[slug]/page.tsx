@@ -4,6 +4,7 @@ import { getDesignProductBySlug, getDesignProductSlugs } from "@/lib/queries";
 import DesignsHero from "@/components/designs/DesignsHero";
 import Breadcrumbs from "@/components/common/Breadcrumbs";
 import DesignDescription from "@/components/designs/DesignDescription";
+import DesignTech from "@/components/designs/DesignTech";
 import DesignLinks from "@/components/designs/DesignLinks";
 import DesignGallery from "@/components/designs/DesignGallery";
 
@@ -40,6 +41,7 @@ export default async function DesignsDetailPage({ params }: Props) {
         <section className="flex flex-col mx-auto px-10 py-12 gap-8">
           <Breadcrumbs />
           <DesignDescription design={design} />
+          <DesignTech techStack={design.techStack ?? []} />
           <DesignLinks design={design} />
           <DesignGallery images={design.gallery ?? []} />
         </section>

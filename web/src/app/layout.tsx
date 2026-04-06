@@ -3,6 +3,7 @@ import { bebasNeue, openSans, sixCaps } from "@/lib/fonts";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/common/CookieConsent";
+import { LoadingProvider } from "../hooks/useLoading";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -48,10 +49,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${sixCaps.variable}`}>
       <body className="flex flex-col min-h-dvh">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <CookieConsent />
+        <LoadingProvider>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+          <CookieConsent />
+        </LoadingProvider>
       </body>
     </html>
   );

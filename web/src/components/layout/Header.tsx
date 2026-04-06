@@ -5,7 +5,6 @@ import Wordmark from "../ui/Logos/Wordmark";
 import MobileMenu from "./MobileMenu";
 import DesktopNav from "./DesktopNav";
 
-// Hjelpefunksjon for å hente CV
 async function getCVData() {
   const data = await sanityClient.fetch(`*[_type == "siteSettings"][0]{ "cvRef": cvFile.asset._ref }`);
   return data?.cvRef ? fileUrl(data.cvRef) : "/Resume2026.pdf";

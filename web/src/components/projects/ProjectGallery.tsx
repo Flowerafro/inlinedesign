@@ -18,18 +18,15 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   if (total === 0) return null;
 
   return (
-    <section aria-label="Project gallery" className="my-16 wrapper-padding">
+    <section aria-label="Project gallery" className="my-16 wrapper-padding wrapper-padding-bottom-100">
       <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">
         Gallery
       </h2>
-
-      {/* Slider track */}
       <div
         className="relative overflow-hidden w-full wrapper-padding"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Slides */}
         <div
           className="flex transition-transform duration-400 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -37,7 +34,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
           {images.map((img, i) => (
             <div
               key={i}
-              className="relative w-full shrink-0 aspect-video"
+              className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] shrink-0 overflow-hidden"
             >
               <Image
                 src={imageUrl(img).url()}
@@ -51,7 +48,6 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
           ))}
         </div>
 
-        {/* Arrows */}
         {total > 1 && (
           <>
             <button
@@ -72,7 +68,6 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
         )}
       </div>
 
-      {/* Dot indicators */}
       {total > 1 && (
         <div className="flex justify-center gap-2 mt-4">
           {images.map((_, i) => (
@@ -80,7 +75,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to image ${i + 1}`}
-              className={`w-2 h-2 rounded-full transition-colors duration-200 ${i === currentIndex
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${i === currentIndex
                 ? "bg-[var(--color-pink)]"
                 : "bg-white/30 hover:bg-white/60"
                 }`}

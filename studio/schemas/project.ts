@@ -17,6 +17,15 @@ export const project = defineType({
       group: 'listing',
     }),
     defineField({
+      name: "slug",
+      type: "slug",
+      options: { source: "title" },
+    }),
+    defineField({
+      name: "publishedAt",
+      type: "datetime",
+    }),
+    defineField({
       name: "cardImage",
       title: "Thumbnail / Card Image",
       type: "image",
@@ -160,16 +169,6 @@ export const project = defineType({
       type: "array",
       group: 'details',
       of: [{ type: "image", options: { hotspot: true } }],
-    }),
-
-    defineField({
-      name: "slug",
-      type: "slug",
-      options: { source: "title" },
-    }),
-    defineField({
-      name: "publishedAt",
-      type: "datetime",
     }),
   ],
   preview: {

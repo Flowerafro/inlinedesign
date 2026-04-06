@@ -24,6 +24,10 @@ export const designProduct = defineType({
       options: { source: "title" },
     }),
     defineField({
+      name: "publishedAt",
+      type: "datetime",
+    }),
+    defineField({
       name: "heroImage",
       title: "Hero Banner",
       description: "Det brede bildet øverst på detaljsiden",
@@ -39,7 +43,7 @@ export const designProduct = defineType({
       options: { hotspot: true },
     }),
     defineField({
-      name: "listingDescription", // Kort beskrivelse til oversikten
+      name: "listingDescription",
       title: "Short Description",
       type: "text",
       rows: 2,
@@ -87,6 +91,15 @@ export const designProduct = defineType({
         layout: "grid",
       },
     }),
+    defineField({
+      name: "techStack",
+      title: "Tech Stack",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        layout: 'tags',
+      },
+    }),
 
     // --- DETAILS GROUP (Bilde 6) ---
 
@@ -95,7 +108,7 @@ export const designProduct = defineType({
       title: "Full Description",
       type: "array",
       group: 'details',
-      of: [{ type: "block" }], // Gir deg mulighet for fet skrift, lister osv.
+      of: [{ type: "block" }],
     }),
     defineField({
       name: "gallery",
@@ -138,13 +151,17 @@ export const designProduct = defineType({
     select: {
       title: "title",
       media: "image",
-      category: "filterCategories.0", // Viser den første kategorien som undertittel
+      date: "publishedAt",
+      assignment: "assignmentType",
     },
-    prepare({ title, media, category }) {
+    prepare({ title, media, date, assignment }) {
+      const year = date ? new Date(date).getFullYear().toString() : "Draft";
+      const typeLabel = assignment ? assignment.charAt(0).toUpperCase() + assignment.slice(1) : "";
+
       return {
         title,
         media,
-        subtitle: category ? category.toUpperCase() : "No category",
+        subtitle: `${year} | ${typeLabel}`,
       };
     },
   },

@@ -46,7 +46,6 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
         </div>
       )}
 
-      {/* Assignment type */}
       {assignmentType && (
         <>
           <div className="flex flex-col gap-2">
@@ -58,7 +57,6 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
         </>
       )}
 
-      {/* Portable Text description */}
       {description && (
         <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-padding">
           <PortableText value={description as Parameters<typeof PortableText>[0]["value"]} />

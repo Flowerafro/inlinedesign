@@ -32,7 +32,7 @@ export interface Project {
   types?: string[];
   assignmentType?: "exam" | "customer" | "hobby";
   publishedAt?: string;
-  description?: unknown[]; // Portable Text blocks
+  description?: unknown[];
   techStack?: string[];
   projectLinks?: ProjectLink[];
   gallery?: SanityImage[];
@@ -50,6 +50,7 @@ export interface DesignProduct {
   listingDescription?: string;
   description?: any[];
   gallery?: SanityImage[];
+  techStack?: string[];
   types?: string[];
   instagramUrl?: string;
   portfolioUrl?: string;
@@ -101,8 +102,10 @@ const DESIGN_PRODUCT_FIELDS = `
   heroImage,
   assignmentType,
   types,
+  techStack,
   filterCategories,
-  listingDescription
+  listingDescription,
+  publishedAt
 `;
 
 const DESIGN_PRODUCT_DETAIL_FIELDS = `
@@ -114,6 +117,7 @@ const DESIGN_PRODUCT_DETAIL_FIELDS = `
   heroImage,
   filterCategories,
   assignmentType,
+  techStack,
   listingDescription,
   description,
   gallery,

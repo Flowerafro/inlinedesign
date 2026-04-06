@@ -16,9 +16,9 @@ export default async function Wordmark() {
             <Image
                 src={imageUrl(wordmarkData).url()}
                 alt="Wordmark"
-                width={150} // Juster etter ditt design
+                width={150}
                 height={20}
-                className="object-contain brightness-0 invert" // Gjør den hvit hvis den er sort originalt
+                className="object-contain brightness-0 invert"
             />
         </div>
     );

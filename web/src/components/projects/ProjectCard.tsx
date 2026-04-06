@@ -11,8 +11,6 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { title, slug, cardImage, types } = project;
   const href = `/projects/${slug.current}`;
-
-  // Bruker første type som label, eller fallback til 'Project'
   const categoryLabel = types && types.length > 0 ? types[0].replace(/-/g, " ") : "Project";
 
   return (

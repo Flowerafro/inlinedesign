@@ -22,14 +22,11 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
       <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">
         Gallery
       </h2>
-
-      {/* Slider track */}
       <div
         className="relative overflow-hidden w-full"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Slides */}
         <div
           className="flex transition-transform duration-400 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -37,7 +34,7 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
           {images.map((img, i) => (
             <div
               key={i}
-              className="relative w-full shrink-0 aspect-video"
+              className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] shrink-0 overflow-hidden"
             >
               <Image
                 src={imageUrl(img).url()}
@@ -51,7 +48,6 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
           ))}
         </div>
 
-        {/* Arrows */}
         {total > 1 && (
           <>
             <button
@@ -72,15 +68,14 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
         )}
       </div>
 
-      {/* Dot indicators */}
       {total > 1 && (
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-2 mt-6">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               aria-label={`Go to image ${i + 1}`}
-              className={`w-2 h-2 rounded-full transition-colors duration-200 ${i === currentIndex
+              className={`w-3 h-3 rounded-full transition-colors duration-200 ${i === currentIndex
                 ? "bg-[var(--color-pink)]"
                 : "bg-white/30 hover:bg-white/60"
                 }`}

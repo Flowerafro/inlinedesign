@@ -8,7 +8,6 @@ export function useFilter<T extends { filterCategories?: string[] }>(items: T[])
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
-  // Derive unique filter keys from all items
   const filterKeys = useMemo<string[]>(() => {
     const set = new Set<string>();
     items.forEach((item) => {
@@ -17,7 +16,6 @@ export function useFilter<T extends { filterCategories?: string[] }>(items: T[])
     return Array.from(set).sort();
   }, [items]);
 
-  // Apply filter
   const filtered = useMemo<T[]>(() => {
     if (activeFilter === "all") return items;
     return items.filter((item) =>
@@ -25,7 +23,6 @@ export function useFilter<T extends { filterCategories?: string[] }>(items: T[])
     );
   }, [items, activeFilter]);
 
-  // Visible slice for "Load More"
   const visible = useMemo(() => filtered.slice(0, visibleCount), [filtered, visibleCount]);
 
   const hasMore = visibleCount < filtered.length;
@@ -36,7 +33,7 @@ export function useFilter<T extends { filterCategories?: string[] }>(items: T[])
 
   function setFilter(key: string) {
     setActiveFilter(key);
-    setVisibleCount(PAGE_SIZE); // Reset pagination on filter change
+    setVisibleCount(PAGE_SIZE);
   }
 
   return { filterKeys, activeFilter, setFilter, visible, hasMore, loadMore };

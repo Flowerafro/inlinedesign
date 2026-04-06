@@ -32,8 +32,8 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
-      name: "logoWordmark",
-      title: "Logo - wordmark",
+      name: "wordmark",
+      title: "Wordmark",
       type: "image",
       options: { hotspot: true },
       fields: [
