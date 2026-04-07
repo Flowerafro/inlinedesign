@@ -27,7 +27,7 @@ export default function Hero({ wordmarkData }: HeroProps) {
     }, [mouseX, mouseY]);
 
     return (
-        <section className="relative w-full h-full flex items-center justify-center overflow-hidden bg-black px-6 md:px-12">
+        <section className="relative w-full h-full flex items-center justify-center bg-black px-6 md:px-12">
             <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none z-0 px-8">
                 {wordmarkData && (
                     <div className="relative w-full h-[80vh] opacity-[0.09] grayscale">
@@ -44,7 +44,7 @@ export default function Hero({ wordmarkData }: HeroProps) {
 
             <motion.div
                 style={{ left: dx, top: dy }}
-                className="absolute w-[600px] h-[600px] bg-[#ff4d94]/15 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-10"
+                className="absolute w-[600px] h-[600px] bg-[#ff4d94]/20 rounded-full blur-[120px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-10"
             />
 
             <div className="relative z-20 flex flex-col items-center text-center wrapper padding wrapper-margin-top">

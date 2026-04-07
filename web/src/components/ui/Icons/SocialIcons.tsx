@@ -1,6 +1,6 @@
 import { InstagramIcon } from "./InstagramIcon";
 import { BeaconsIcon } from "./BeaconsIcon";
-import { EmailIcon } from "./EmailIcon";
+import { LinkedInIcon } from "./LinkedInIcon";
 import { sanityClient } from "@/lib/sanity";
 
 interface IconProps {
@@ -9,12 +9,12 @@ interface IconProps {
 }
 
 async function getSocialIcons() {
-  return await sanityClient.fetch(`*[_type == "siteSettings"][0]{ instagramUrl, beaconsUrl }`);
+  return await sanityClient.fetch(`*[_type == "siteSettings"][0]{ instagramUrl, beaconsUrl, linkedinUrl}`);
 }
 
 export default async function SocialIcons({ size = 22 }: IconProps) {
   const data = await getSocialIcons();
-  const badgeCls = "group inline-flex items-center justify-center transition-transform hover:scale-110 duration-200";
+  const badgeCls = "group inline-flex items-center justify-center transition-transform hover:scale-110 duration-200 cursor-pointer";
   const svgCls = "text-white transition-colors duration-200 group-hover:text-pink";
 
   return (
@@ -25,8 +25,8 @@ export default async function SocialIcons({ size = 22 }: IconProps) {
       <a href={data?.beaconsUrl} target="_blank" rel="noreferrer" aria-label="Beacons" className={badgeCls}>
         <BeaconsIcon size={size} />
       </a>
-      <a href={`mailto:${data?.email}`} aria-label="Email" className={badgeCls}>
-        <EmailIcon size={size} className={svgCls} />
+      <a href={data?.linkedinUrl} target="_blank" rel="noreferrer" aria-label="LinkedIn" className={badgeCls}>
+        <LinkedInIcon size={size} className={svgCls} />
       </a>
     </div>
   )

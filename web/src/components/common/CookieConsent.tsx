@@ -29,7 +29,6 @@ export default function CookieConsent() {
 
   return (
     <>
-      {/* Load GA only after explicit consent */}
       {status === "accepted" && gaId && (
         <>
           <Script
@@ -47,9 +46,8 @@ export default function CookieConsent() {
         </>
       )}
 
-      {/* Banner — only shown while pending */}
       {status === "pending" && (
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[rgba(26,10,50,0.96)] backdrop-blur-[8px] border-t border-[rgba(250,65,204,0.25)] p-4 px-6 flex items-center justify-between gap-4 flex-wrap font-body text-[0.85rem]" role="region" aria-label="Cookie consent">
+        <div className=" fixed bottom-0 left-0 right-0 z-50 bg-[rgba(26,10,50,0.96)] backdrop-blur-[8px] border-t border-[rgba(250,65,204,0.25)] p-4 px-6 flex items-center justify-between gap-4 flex-wrap font-body text-[0.85rem]" role="region" aria-label="Cookie consent">
           <p>
             This site uses cookies to analyse traffic via Google Analytics.{" "}
             <a

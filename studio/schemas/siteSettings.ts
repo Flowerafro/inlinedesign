@@ -74,6 +74,14 @@ export const siteSettings = defineType({
       type: "string",
     }),
     defineField({
+      name: 'linkedinUrl',
+      title: 'LinkedIn URL',
+      type: 'url',
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }),
+    }),
+    defineField({
       name: "cvFile",
       title: "CV / Resume (PDF)",
       type: "file",
