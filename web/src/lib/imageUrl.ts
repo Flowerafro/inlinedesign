@@ -9,8 +9,7 @@ export function imageUrl(source: SanityImage) {
 }
 
 export function fileUrl(ref: string): string {
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
-  const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!;
+  const { projectId, dataset } = sanityClient.config();
   const clean = ref.replace(/^file-/, "").replace(/-([^-]+)$/, ".$1");
   return `https://cdn.sanity.io/files/${projectId}/${dataset}/${clean}`;
 }
