@@ -52,7 +52,7 @@ export default function AboutClient({ cvUrl, data }: AboutClientProps) {
       >
         <header className="flex flex-col items-center text-center gap-12 mb-16">
           <h1 className="font-display text-[clamp(3.5rem,10vw,7rem)] leading-[0.85] text-white uppercase tracking-tighter">
-            ABOUT
+            ABOUT <span className="text-[#ff4d94]"> ME </span>
           </h1>
           <p className="font-body text-white/60 text-sm md:text-base max-w-[500px] leading-relaxed whitespace-pre-line">
             {data.hook}
@@ -131,14 +131,14 @@ export default function AboutClient({ cvUrl, data }: AboutClientProps) {
 
       <div className="w-full max-w-[1200px] mx-auto flex flex-col gap-32 md:gap-48 mt-12">
         <motion.section variants={fadeSlideUp} initial="hidden" whileInView="visible" viewport={viewportConfig} className="flex flex-col items-center text-center w-full wrapper-margin-bottom-50">
-          <h2 className="font-display text-[3rem] tracking-[0.2em] uppercase text-white/80 mb-16">Professional summary</h2>
+          <h2 className="font-display text-[3rem] tracking-[0.2em] uppercase text-white/80 mb-16">Professional <span className="text-[#ff4d94]"> summary </span></h2>
           <p className="font-body text-white/60 text-sm md:text-base max-w-[500px] leading-relaxed whitespace-pre-line">
             {data.details}
           </p>
         </motion.section>
 
         <motion.section variants={fadeSlideUp} initial="hidden" whileInView="visible" viewport={viewportConfig} className="flex flex-col items-center text-center w-full wrapper-margin-bottom-100">
-          <h2 className="font-display text-[3rem] tracking-[0.2em] uppercase text-white/80 mb-16">Off the clock</h2>
+          <h2 className="font-display text-[3rem] tracking-[0.2em] uppercase text-white/80 mb-16">Off the <span className="text-[#ff4d94]"> clock </span></h2>
           <p className="font-body text-white/60 text-sm md:text-base max-w-[500px] leading-relaxed whitespace-pre-line">
             {data.personalTouch}
           </p>

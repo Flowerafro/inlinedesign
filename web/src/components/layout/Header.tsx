@@ -19,7 +19,6 @@ export default async function Header() {
         <div className="wrapper-padding">
           <div className="flex items-center gap-4">
             <Logo />
-            <Wordmark />
           </div>
         </div>
         <DesktopNav cvUrl={cvUrl} />

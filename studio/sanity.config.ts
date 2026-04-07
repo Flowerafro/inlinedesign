@@ -23,7 +23,6 @@ export default defineConfig({
         S.list()
           .title("Content")
           .items([
-            // Singleton: Site Settings
             S.listItem()
               .title("Site Settings")
               .id("siteSettings")
@@ -32,7 +31,6 @@ export default defineConfig({
                   .schemaType("siteSettings")
                   .documentId("siteSettings")
               ),
-            // Singleton: About Page
             S.listItem()
               .title("About Page")
               .id("aboutPage")

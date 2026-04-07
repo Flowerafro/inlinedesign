@@ -2,7 +2,7 @@ import SocialIcons from "../ui/Icons/SocialIcons";
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto h-[100px] wrapper-padding">
+    <footer className="w-full mt-auto h-[50px] wrapper-padding bg-transparent">
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="flex flex-col">
           <SocialIcons />

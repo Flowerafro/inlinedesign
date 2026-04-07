@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-// Definerer at komponenten tar imot cvUrl
 interface DesktopNavProps {
   cvUrl: string;
 }
@@ -38,7 +37,7 @@ export default function DesktopNav({ cvUrl }: DesktopNavProps) {
         href={cvUrl}
         target="_blank"
         rel="noreferrer"
-        className="font-heading text-[1rem] tracking-[0.1em] text-white uppercase border-[1.5px] border-white px-8 py-3 ml-4 transition-colors duration-200 hover:bg-white hover:text-black"
+        className="flex items-center gap-2 button-padding bg-pink-500 text-white font-heading text-[0.9rem] tracking-[0.1em] uppercase rounded-sm transition-all duration-300 hover:bg-pink-600 hover:-translate-y-0.5"
       >
         CV
       </a>
