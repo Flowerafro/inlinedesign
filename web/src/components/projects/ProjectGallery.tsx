@@ -41,7 +41,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
                 alt={`Gallery image ${i + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 80vw"
-                className="object-contain p-2 md:p-6"
+                className="object-contain p-6 bg-[#0a0a0a] rounded-md"
                 priority={i === 0}
               />
             </div>

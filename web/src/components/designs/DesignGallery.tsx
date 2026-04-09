@@ -41,7 +41,7 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
                 alt={`Gallery image ${i + 1}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 80vw"
-                className="object-contain p-6 bg-white/5 rounded-md"
+                className="object-contain p-6 bg-[#0a0a0a] rounded-md"
                 priority={i === 0}
               />
             </div>
@@ -76,7 +76,7 @@ export default function DesignGallery({ images }: DesignGalleryProps) {
               onClick={() => goTo(i)}
               aria-label={`Go to image ${i + 1}`}
               className={`w-3 h-3 rounded-full transition-colors duration-200 ${i === currentIndex
-                ? "bg-[var(--color-pink)]"
+                ? "bg-[var(--color-black)]"
                 : "bg-white/30 hover:bg-white/60"
                 }`}
             />

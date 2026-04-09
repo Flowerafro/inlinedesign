@@ -26,12 +26,8 @@ export default function DrawingDescription({ drawing }: DrawingDescriptionProps)
 
     return (
         <section className="w-full max-w-[320px] md:max-w-[720px] px-4 flex flex-col gap-2">
-            <h1 className="font-display text-[clamp(3rem,5vw,6rem)] leading-[0.95] uppercase text-white mb-60 wrapper-padding">
-                {title}
-            </h1>
-
             {types && types.length > 0 && (
-                <div className="flex flex-col items-start gap-2 mb-4">
+                <div className="flex items-center gap-2 mb-4">
                     <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Art style:</h2>
                     <div className="flex flex-wrap gap-2">
                         {types.map((t) => (
@@ -44,9 +40,9 @@ export default function DrawingDescription({ drawing }: DrawingDescriptionProps)
             )}
 
             {assignmentType && (
-                <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2">
                     <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-4">Context:</h2>
-                    <p className="font-body text-[0.8rem] text-white/50 mb-8 uppercase tracking-wider">
+                    <p className="font-body text-[0.8rem] text-white mb-8 uppercase tracking-wider">
                         {ASSIGNMENT_LABELS[assignmentType] ?? assignmentType}
                     </p>
                 </div>

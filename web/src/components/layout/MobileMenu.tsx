@@ -9,6 +9,7 @@ const links = [
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
   { name: "Designs", href: "/designs" },
+  { name: "Drawings", href: "/drawings" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -30,8 +31,6 @@ export default function MobileMenu() {
         </button>
       </div>
 
-
-      {/* Overlay Menu */}
       {isOpen && (
         <div className="fixed inset-0 z-40 bg-[#22201d] flex flex-col items-center justify-center gap-8">
           {links.map((link) => (
