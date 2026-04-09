@@ -10,6 +10,9 @@ export function useBreadcrumbs() {
     if (pathname.startsWith("/designs")) {
       return { href: "/designs", label: "Back to Designs" };
     }
+    if (pathname.startsWith("/drawings")) {
+      return { href: "/drawings", label: "Back to Drawings" };
+    }
     return { href: "/projects", label: "Back to Projects" };
   }, [pathname]);
 

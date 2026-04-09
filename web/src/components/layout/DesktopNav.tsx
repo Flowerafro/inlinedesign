@@ -14,6 +14,7 @@ export default function DesktopNav({ cvUrl }: DesktopNavProps) {
     { name: "About", href: "/about" },
     { name: "Projects", href: "/projects" },
     { name: "Designs", href: "/designs" },
+    { name: "Drawings", href: "/drawings" },
     { name: "Contact", href: "/contact" },
   ];
 

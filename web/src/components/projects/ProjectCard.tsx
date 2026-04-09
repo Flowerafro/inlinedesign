@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       aria-label={`View project: ${title}`}
     >
       <div className="relative overflow-hidden aspect-square rounded-sm w-full mb-4">
-        <div className="absolute inset-0 bg-black/20 z-10 transition-all duration-500 group-hover:bg-black/50" />
+        <div className="absolute inset-0 z-10 transition-all duration-500 group-hover:bg-black/40" />
 
         <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
           <span className="button-padding border border-white/20 bg-white/10 backdrop-blur-md text-white text-[10px] uppercase tracking-[0.2em] rounded-full">
@@ -33,11 +33,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             src={imageUrl(cardImage).width(800).height(800).fit("crop").url()}
             alt={title}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover z-0 transition-transform duration-500 ease-out group-hover:scale-105"
+            className="object-cover z-0 transition-all duration-500 ease-out 
+                 brightness-[0.85] group-hover:brightness-[0.5] group-hover:scale-105"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-[#22201d] to-black z-0" />
+          <div className="absolute inset-0 bg-neutral-900" />
         )}
       </div>
 

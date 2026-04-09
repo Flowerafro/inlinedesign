@@ -56,6 +56,22 @@ export interface DesignProduct {
   portfolioUrl?: string;
 }
 
+export interface Drawing {
+  _id: string;
+  _type: "drawing";
+  title: string;
+  slug: SanitySlug;
+  image?: SanityImage;
+  heroImage?: SanityImage;
+  filterCategories?: string[];
+  assignmentType?: string;
+  description?: any[];
+  techStack?: string[];
+  types?: string[];
+  behanceUrl?: string;
+  deviantartUrl?: string;
+}
+
 // ---------------------------------------------------------------------------
 // GROQ queries
 // ---------------------------------------------------------------------------
@@ -126,6 +142,36 @@ const DESIGN_PRODUCT_DETAIL_FIELDS = `
   portfolioUrl
 `;
 
+const DRAWING_FIELDS = `
+  _id,
+  _type,
+  title,
+  slug,
+  image,
+  heroImage,
+  assignmentType,
+  types,
+  techStack,
+  filterCategories,
+  publishedAt
+`;
+
+const DRAWING_DETAIL_FIELDS = `
+  _id,
+  _type,
+  title,
+  slug,
+  image,
+  heroImage,
+  filterCategories,
+  assignmentType,
+  techStack,
+  description,
+  types,
+  behanceUrl,
+  deviantartUrl
+`;
+
 export const PROJECTS_QUERY = `
   *[_type == "project"] | order(publishedAt desc) {
     ${PROJECT_LISTING_FIELDS}
@@ -156,6 +202,22 @@ export const DESIGN_PRODUCT_BY_SLUG_QUERY = `
 
 export const DESIGN_PRODUCTS_SLUGS_QUERY = `
   *[_type == "designProduct" && defined(slug.current)]{ "slug": slug.current }
+`;
+
+export const DRAWINGS_QUERY = `
+  *[_type == "drawing"] | order(publishedAt desc) {
+    ${DRAWING_FIELDS}
+  }
+`;
+
+export const DRAWING_BY_SLUG_QUERY = `
+  *[_type == "drawing" && slug.current == $slug][0] {
+    ${DRAWING_DETAIL_FIELDS}
+  }
+`;
+
+export const DRAWINGS_SLUGS_QUERY = `
+  *[_type == "drawing" && defined(slug.current)]{ "slug": slug.current }
 `;
 
 // ---------------------------------------------------------------------------
@@ -192,14 +254,31 @@ export async function getDesignProductSlugs(): Promise<{ slug: string }[]> {
   return sanityClient.fetch<{ slug: string }[]>(DESIGN_PRODUCTS_SLUGS_QUERY);
 }
 
+/** Fetch all drawings, ordered newest first. */
+export async function getDrawings(): Promise<Drawing[]> {
+  return sanityClient.fetch<Drawing[]>(DRAWINGS_QUERY);
+}
+
+/** Fetch a single drawing by slug with full detail fields. */
+export async function getDrawingBySlug(slug: string): Promise<Drawing | null> {
+  return sanityClient.fetch<Drawing | null>(DRAWING_BY_SLUG_QUERY, { slug });
+}
+
+/** Fetch all drawing slugs for generateStaticParams. */
+export async function getDrawingSlugs(): Promise<{ slug: string }[]> {
+  return sanityClient.fetch<{ slug: string }[]>(DRAWINGS_SLUGS_QUERY);
+}
+
 /** Fetch both collections in parallel – useful for the homepage. */
 export async function getAllPortfolioItems(): Promise<{
   projects: Project[];
   designProducts: DesignProduct[];
+  drawings: Drawing[];
 }> {
-  const [projects, designProducts] = await Promise.all([
+  const [projects, designProducts, drawings] = await Promise.all([
     getProjects(),
     getDesignProducts(),
+    getDrawings(),
   ]);
-  return { projects, designProducts };
+  return { projects, designProducts, drawings };
 }

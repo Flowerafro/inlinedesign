@@ -42,6 +42,7 @@ export default defineConfig({
             S.divider(),
             S.documentTypeListItem("project").title("Projects"),
             S.documentTypeListItem("designProduct").title("Design Products"),
+            S.documentTypeListItem("drawing").title("Drawings"),
           ]),
     }),
     visionTool(),
