@@ -62,20 +62,43 @@ export const siteSettings = defineType({
       name: "instagramUrl",
       title: "Instagram URL",
       type: "url",
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }),
     }),
     defineField({
       name: "beaconsUrl",
       title: "Beacons / Portfolio URL",
       type: "url",
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }),
     }),
     defineField({
       name: "email",
       title: "Contact email",
       type: "string",
+
     }),
     defineField({
       name: 'linkedinUrl',
       title: 'LinkedIn URL',
+      type: 'url',
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }),
+    }),
+    defineField({
+      name: 'behanceUrl',
+      title: 'Behance URL',
+      type: 'url',
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }),
+    }),
+    defineField({
+      name: 'githubUrl',
+      title: 'Github URL',
       type: 'url',
       validation: (Rule) => Rule.uri({
         scheme: ['http', 'https']
