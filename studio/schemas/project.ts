@@ -54,7 +54,8 @@ export const project = defineType({
           { title: "Process optimization", value: "process-optimization" },
           { title: "IT Strategy", value: "it-strategy" },
           { title: "Project Management", value: "project-management" },
-          { title: "Business Systems", value: "business-systems" }
+          { title: "Business Systems", value: "business-systems" },
+          { title: "SEO Optimization", value: "seo-optimization" },
         ],
         layout: "grid",
       },
@@ -84,7 +85,8 @@ export const project = defineType({
           { title: "Process optimization", value: "process-optimization" },
           { title: "IT Strategy", value: "it-strategy" },
           { title: "Project Management", value: "project-management" },
-          { title: "Business Systems", value: "business-systems" }
+          { title: "Business Systems", value: "business-systems" },
+          { title: "SEO Optimization", value: "seo-optimization" },
         ],
         layout: "grid",
       },
