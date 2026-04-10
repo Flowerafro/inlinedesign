@@ -2,7 +2,7 @@ export default function DesignTech({ techStack }: { techStack: string[] }) {
     if (!techStack || techStack.length === 0) return null;
 
     return (
-        <div className="flex flex-wrap gap-2 mt-4 wrapper-padding md:max-w-1/2">
+        <div className="flex flex-wrap gap-2 mt-4 wrapper-margin-top-50 md:max-w-1/2">
             {techStack.map((tech) => (
                 <span
                     key={tech}

@@ -1,5 +1,6 @@
 import { PortableText } from "@portabletext/react";
 import type { Project } from "@/lib/queries";
+import { div, section } from "framer-motion/client";
 
 const ASSIGNMENT_LABELS: Record<string, string> = {
   exam: "Exam / School",
@@ -27,17 +28,17 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
 
   return (
     <section className="w-full max-w-[320px] md:max-w-[720px] px-4 flex flex-col gap-2">
-      <h1 className="font-display text-[clamp(3rem,5vw,6rem)] leading-[0.95] uppercase text-white mb-60  wrapper-padding">
+      <h1 className="font-display text-[clamp(3rem,5vw,6rem)] leading-[0.95] uppercase text-white mb-60 wrapper-margin-top-50">
         {title}
       </h1>
 
       {types && types.length > 0 && (
-        <div className="flex flex-col items-start gap-2 mb-4">
+        <div className="flex flex-col items-start gap-2 mb-4 wrapper-margin-top-50">
           <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Project type:</h2>
           {types.map((t) => (
-            <div key={t} className="flex flex-col gap-2">
+            <div key={t} className="flex flex-row items-center gap-2">
               <span
-                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase button-padding border border-white/30 text-white/70 rounded-sm"
+                className="font-heading text-[1rem] text-center tracking-[0.08em] uppercase button-padding border border-white/30 text-pink/70 rounded-sm"
               >
                 {TYPE_LABELS[t] ?? t.replace(/-/g, " ")}
               </span>
@@ -48,9 +49,9 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
 
       {assignmentType && (
         <>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 wrapper-margin-top-10">
             <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-4">Assignment type:</h2>
-            <p className="font-body text-[0.8rem] text-white/50 mb-8 uppercase tracking-wider">
+            <p className="font-body text-[0.8rem] text-pink/80 mb-8 uppercase tracking-wider">
               {ASSIGNMENT_LABELS[assignmentType] ?? assignmentType}
             </p>
           </div>
@@ -58,7 +59,7 @@ export default function ProjectDescription({ project }: ProjectDescriptionProps)
       )}
 
       {description && (
-        <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-padding">
+        <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-margin-top-50">
           <PortableText value={description as Parameters<typeof PortableText>[0]["value"]} />
         </div>
       )}

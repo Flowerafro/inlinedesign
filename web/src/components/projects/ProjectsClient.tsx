@@ -3,6 +3,7 @@
 import { useFilter } from "@/hooks/useFilter";
 import ProjectCard from "@/components/projects/ProjectCard";
 import ProjectFilter from "@/components/projects/ProjectFilter";
+import LoadMoreBtn from "../common/LoadMoreBtn";
 import type { Project } from "@/lib/queries";
 
 interface ProjectsClientProps {
@@ -35,12 +36,7 @@ export default function ProjectsClient({ projects }: ProjectsClientProps) {
 
       {hasMore && (
         <section className="flex justify-center mt-16  gap-8 md:gap-10">
-          <button
-            onClick={loadMore}
-            className="glass-button transition-all duration-300 hover:-translate-y-0.5"
-          >
-            LOAD MORE PROJECTS
-          </button>
+          <LoadMoreBtn loadMore={loadMore} label="LOAD MORE PROJECTS" />
         </section>
       )}
     </>

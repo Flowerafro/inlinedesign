@@ -29,10 +29,7 @@ export default async function DrawingDetailPage({ params }: Props) {
 
     return (
         <article className="w-full min-h-screen bg-black flex flex-col items-center justify-center">
-            {/* Wrapper som holder innholdet samlet og sentrert, med luft til navbaren */}
             <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center lg:items-start py-20 md:py-32 lg:py-40 px-6 md:px-12">
-
-                {/* VENSTRE SIDE: Tegningen (Sentrert med luft rundt) */}
                 <section className="w-full lg:w-1/2 flex justify-center">
                     <div className="relative w-full max-w-[600px] aspect-square group">
                         {drawing.heroImage ? (
@@ -41,6 +38,7 @@ export default async function DrawingDetailPage({ params }: Props) {
                                 alt={drawing.title}
                                 fill
                                 priority
+                                sizes="100vw"
                                 className="object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                             />
                         ) : (
@@ -49,11 +47,8 @@ export default async function DrawingDetailPage({ params }: Props) {
                     </div>
                 </section>
 
-                {/* HØYRE SIDE: Tekstinnhold (Sentrert vertikalt med bildet) */}
                 <section className="w-full lg:w-1/2 flex flex-col items-center lg:items-start lg:pl-16 wrapper-padding">
                     <div className="w-full max-w-[450px] flex flex-col gap-12">
-
-                        {/* Navigasjon og Tittel */}
                         <div className="flex flex-col gap-6">
                             <Breadcrumbs />
                             <div className="flex flex-col gap-3">
@@ -65,8 +60,6 @@ export default async function DrawingDetailPage({ params }: Props) {
                                 </h1>
                             </div>
                         </div>
-
-                        {/* Detaljer - delt opp med tynne linjer for luft */}
                         <div className="flex flex-col gap-10 border-t border-white/10 pt-10">
                             <DrawingsDescription drawing={drawing} />
 

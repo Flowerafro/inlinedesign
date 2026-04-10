@@ -4,6 +4,7 @@ import { useFilter } from "@/hooks/useFilter";
 import DesignCard from "@/components/designs/DesignCard";
 import DesignsFilter from "@/components/designs/DesignsFilter";
 import type { DesignProduct } from "@/lib/queries";
+import LoadMoreBtn from "../common/LoadMoreBtn";
 
 interface DesignsClientProps {
   designs: DesignProduct[];
@@ -35,12 +36,7 @@ export default function DesignsClient({ designs }: DesignsClientProps) {
 
       {hasMore && (
         <section className="flex justify-center mt-16 gap-8 md:gap-10">
-          <button
-            onClick={loadMore}
-            className="glass-button transition-all duration-300 hover:-translate-y-0.5"
-          >
-            LOAD MORE DESIGNS
-          </button>
+          <LoadMoreBtn loadMore={loadMore} label="LOAD MORE DESIGNS" />
         </section>
       )}
     </>

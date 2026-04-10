@@ -17,7 +17,7 @@ export default function DesignsHero({ image, title }: DesignsHeroProps) {
     return (
         <div className="relative w-full h-[45vh] md:h-[60vh] overflow-hidden">
             <Image
-                src={imageUrl(image).width(1600).height(900).fit("crop").url()}
+                src={imageUrl(image).width(1200).height(900).fit("crop").url()}
                 alt={`Hero image for ${title}`}
                 fill
                 priority

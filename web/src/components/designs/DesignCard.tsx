@@ -33,6 +33,7 @@ export default function DesignCard({ design }: DesignCardProps) {
             src={imageUrl(image).width(800).height(800).fit("crop").url()}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover z-0 transition-all duration-500 ease-out 
                  brightness-[0.85] group-hover:brightness-[0.5] group-hover:scale-105"
           />
@@ -41,7 +42,6 @@ export default function DesignCard({ design }: DesignCardProps) {
         )}
       </div>
 
-      {/* Tekst under bildet */}
       <div className="flex flex-col w-full px-1">
         <div className="flex justify-between items-center w-full">
           <h3 className="font-heading text-lg md:text-xl uppercase text-white transition-colors duration-300 group-hover:text-[#ff4d94]">

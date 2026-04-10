@@ -25,9 +25,9 @@ export default function DrawingDescription({ drawing }: DrawingDescriptionProps)
     const { title, types, assignmentType, description } = drawing;
 
     return (
-        <section className="w-full max-w-[320px] md:max-w-[720px] px-4 flex flex-col gap-2">
+        <section className="w-full max-w-[320px] md:max-w-[720px] px-4 flex flex-col gap-4">
             {types && types.length > 0 && (
-                <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center justify-between gap-2 mb-4 wrapper-margin-top-10">
                     <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-6">Art style:</h2>
                     <div className="flex flex-wrap gap-2">
                         {types.map((t) => (
@@ -40,7 +40,7 @@ export default function DrawingDescription({ drawing }: DrawingDescriptionProps)
             )}
 
             {assignmentType && (
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between gap-2 wrapper-margin-top-10">
                     <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-4">Context:</h2>
                     <p className="font-body text-[0.8rem] text-white mb-8 uppercase tracking-wider">
                         {ASSIGNMENT_LABELS[assignmentType] ?? assignmentType}
@@ -49,7 +49,7 @@ export default function DrawingDescription({ drawing }: DrawingDescriptionProps)
             )}
 
             {description && (
-                <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert wrapper-padding whitespace-pre-line">
+                <div className="font-body text-sm md:text-base leading-[1.75] text-white/80 space-y-4 prose-invert whitespace-pre-line wrapper-margin-top-10">
                     <PortableText value={description as any} />
                 </div>
             )}

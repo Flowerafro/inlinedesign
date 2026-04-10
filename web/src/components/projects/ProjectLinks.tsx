@@ -14,7 +14,7 @@ export default function ProjectLinks({ links }: ProjectLinksProps) {
       <h2 className="font-heading text-[1.5rem] tracking-[0.1em] uppercase text-white/50 mb-4">
         Links &amp; Deliverables
       </h2>
-      <div className="flex flex-col items-start gap-4">
+      <div className="flex items-start gap-4">
         {links.map((link, i) => {
           const isFile = !!link.file?.asset;
           const href = isFile ? fileUrl(link.file!.asset._ref) : link.url;

@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "darkreader-lock": "true",
+  },
 };
 
 export default function RootLayout({
@@ -47,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${openSans.variable} ${sixCaps.variable}`}>
-      <body className="flex flex-col min-h-dvh">
+    <html lang="en" suppressHydrationWarning className={`${bebasNeue.variable} ${openSans.variable} ${sixCaps.variable}`}>
+      <body suppressHydrationWarning className="flex flex-col min-h-dvh">
         <LoadingProvider>
           <Header />
           <main className="flex-grow">

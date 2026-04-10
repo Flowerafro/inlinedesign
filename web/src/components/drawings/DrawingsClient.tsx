@@ -3,6 +3,7 @@
 import { useFilter } from "@/hooks/useFilter";
 import DrawingCard from "@/components/drawings/DrawingsCard";
 import DrawingsFilter from "@/components/drawings/DrawingsFilter";
+import LoadMoreBtn from "../common/LoadMoreBtn";
 import type { Drawing } from "@/lib/queries";
 
 interface DrawingsClientProps {
@@ -35,12 +36,7 @@ export default function DrawingsClient({ drawings }: DrawingsClientProps) {
 
             {hasMore && (
                 <section className="flex justify-center mt-16">
-                    <button
-                        onClick={loadMore}
-                        className="glass-button transition-all duration-300 hover:-translate-y-0.5"
-                    >
-                        LOAD MORE ARTWORK
-                    </button>
+                    <LoadMoreBtn loadMore={loadMore} label="LOAD MORE DRAWINGS" />
                 </section>
             )}
         </>
